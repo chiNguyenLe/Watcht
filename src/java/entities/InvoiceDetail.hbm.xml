@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 20, 2016 10:21:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.InvoiceDetail" table="invoice_detail" catalog="watch_business" optimistic-lock="version">
+        <id name="invoiceDetailId" type="java.lang.Integer">
+            <column name="InvoiceDetailId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="invoice" class="entities.Invoice" fetch="select">
+            <column name="InvoiceId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="watch" class="entities.Watch" fetch="select">
+            <column name="WatchId" not-null="true" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="Quantity" />
+        </property>
+    </class>
+</hibernate-mapping>
